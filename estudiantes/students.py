@@ -11,7 +11,7 @@ class Student:
 
     @staticmethod
     def get_promedio(student):
-        return lambda x: sum(x)/len(x), student.notas
+        return map(lambda x: sum(x)/len(x), student.notas)
 
 
 class StudentSet:
@@ -33,9 +33,8 @@ class StudentSet:
         return filter(not (self.is_aproved()), self.students)
     
 
-Juan = Student("Tomi", "25", ["10", "5", "4"])
+juancito = Student("Tomi", "25", [[10, 5, 4], [10, 5, 4]])
 
-promedio, list = Juan.get_promedio(Juan)
+promedio = Student.get_promedio(juancito)
 
-
-print(promedio(list))
+print(list(promedio))
